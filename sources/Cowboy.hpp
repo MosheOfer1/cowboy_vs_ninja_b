@@ -1,6 +1,6 @@
 #ifndef COWBOY_HPP
 #define COWBOY_HPP
-
+#define COWBOY_HARM 10
 #include "Character.hpp"
 
 namespace ariel {

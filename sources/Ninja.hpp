@@ -1,6 +1,6 @@
 #ifndef NINJA_HPP
 #define NINJA_HPP
-
+#define NINJA_HARM 40
 #include "Character.hpp"
 
 namespace ariel

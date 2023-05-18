@@ -23,8 +23,9 @@ namespace ariel {
         virtual void print() const;
         // Additional methods
         virtual std::vector<Character*> getMembers();
-        virtual std::vector<Character*> getAliveMembers(std::vector<Character*> &characters);
+        virtual std::vector<Character*> getAliveMembers(const std::vector<Character*> &characters) const;
         virtual void attackVictim(Character *attacker, Character *victim);
+        Character *findClosest(const std::vector<Character *> &members,const Character *leader) const;
     };
 
     class Team2 : public Team {
@@ -38,8 +39,20 @@ namespace ariel {
         void print() const override;
         // Additional methods
         std::vector<Character*> getMembers() override;
-        std::vector<Character*> getAliveMembers(std::vector<Character*> &characters) override;
-        //void attackVictim(Character *attacker, Character *victim) override;
+        std::vector<Character*> getAliveMembers(const std::vector<Character*> &characters) const override;
+    };
+
+    class SmartTeam : public Team {
+    public:
+        SmartTeam(Character* leader):Team(leader){}  // inherit constructors
+        void attack(Team *enemy) override;
+
+    private:
+        Character* findWeakestMember(const std::vector<Character *> &members) const;
+        Character* findShootableMember(const std::vector<Character *> &members) const;
+        void smartAttackVictim(Character *attacker, const std::vector<Character *> &enemyAliveMembers);
+        Character *findClosestEnemyInRange(const std::vector<Character *> &members, Character *self, double range) const;
+
     };
 }
 

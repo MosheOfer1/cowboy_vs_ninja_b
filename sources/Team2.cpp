@@ -44,7 +44,7 @@ namespace ariel
         return members;
     }
 
-    std::vector<Character *> Team2::getAliveMembers(std::vector<Character *> &characters)
+    std::vector<Character *> Team2::getAliveMembers(const std::vector<Character *> &characters) const
     {
         std::vector<Character *> aliveMembers;
         for (auto character : characters)

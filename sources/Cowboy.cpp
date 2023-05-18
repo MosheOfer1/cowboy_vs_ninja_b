@@ -1,5 +1,5 @@
 #include "Cowboy.hpp"
-#define COWBOY_HARM 10
+
 namespace ariel
 {
     Cowboy::Cowboy(std::string name, Point location) : Character(name, location, 110), bullets(6) {}

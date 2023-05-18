@@ -53,7 +53,7 @@ namespace ariel
         character->setInTeam(true);
     }
 
-    Character *findClosest(std::vector<Character *> &members, Character *leader)
+    Character* Team::findClosest(const std::vector<Character *> &members,const Character *leader) const
     {
         double closestDist = std::numeric_limits<double>::max();
         Character *closestCharacter = nullptr;
@@ -81,7 +81,7 @@ namespace ariel
         return allMembers;
     }
 
-    std::vector<Character *> Team::getAliveMembers(std::vector<Character *> &characters)
+    std::vector<Character *> Team::getAliveMembers(const std::vector<Character *> &characters) const
     {
         std::vector<Character *> aliveMembers;
         for (auto character : characters)
@@ -98,9 +98,9 @@ namespace ariel
     {
         if (Cowboy *cowboy = dynamic_cast<Cowboy *>(attacker))
         {
-            // Cowboys who have bullets in their guns will shoot the victim
             if (cowboy->hasboolets())
             {
+                // Cowboys who have bullets in their guns will shoot the victim
                 cowboy->shoot(victim);
             }
             else

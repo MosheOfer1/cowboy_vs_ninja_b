@@ -1,5 +1,4 @@
 #include "Ninja.hpp"
-#define NINJA_HARM 40
 
 namespace ariel
 {
